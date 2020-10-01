@@ -10,9 +10,9 @@ const Auth = () => {
             target: {name, value}
         } = event;
         // TODO: Email, Password Value
-        if (name === "Email"){
+        if (name === "email"){
             setEmail(value);
-        } else if (name ==="Passwrod"){
+        } else if (name ==="password"){
             setPassword(value);
         }
     };
@@ -21,9 +21,9 @@ const Auth = () => {
         let data;
         try {
             if(newAccount) {
-                const data = await authService.createUserWithEmailAndPassword(email, password)
+                data = await authService.createUserWithEmailAndPassword(email, password)
             }else{
-                const data = await authService.signInWithEmailAndPassword(email, password);
+                data = await authService.signInWithEmailAndPassword(email, password);
             }  
             console.log(data);
         } catch(error) {
@@ -34,14 +34,14 @@ const Auth = () => {
         <div>
             <form onSubmit={onSubmit}>
                 <input 
-                    name="Email"
+                    name="email"
                     type="text"
                     placeholder="Email" 
                     required 
                     value={email} 
                     onChange={onChange}/>
                 <input 
-                    name="Password"
+                    name="password"
                     type="password"
                     placeholder="Password"
                     required 
